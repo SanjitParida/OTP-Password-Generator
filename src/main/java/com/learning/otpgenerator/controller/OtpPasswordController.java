@@ -23,17 +23,17 @@ public class OtpPasswordController {
 	OTPGeneratorService otpGeneratorService;
 	
 	@GetMapping(value="/numericOTP")
-	public char[] getNumericOtp() {
+	public String getNumericOtp() {
 	return	otpGeneratorService.generateNumericOTP(numericLength);
 	}
 	
 	@GetMapping(value="/alphaNumericOTP")
-	public char[] getAlphaNumericOtp() {
+	public String getAlphaNumericOtp() {
 	return	otpGeneratorService.generateAlphaNumericOTP(alphaNumericLength);
 	}
 	
 	@GetMapping(value="/generate-password")
-	public char[] getpswd() {
+	public String getpswd() {
 	return	otpGeneratorService.generatePswd(pswdLength);
 	}
 }

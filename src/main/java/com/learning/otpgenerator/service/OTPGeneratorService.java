@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 public class OTPGeneratorService {
 
 	
-	public char[] generateNumericOTP(int length) {
+	public String generateNumericOTP(int length) {
 		System.out.println("Generating your numeric OTP using random(): ");
 		String number = "1234567890";
 		Random random = new Random();
@@ -17,10 +17,10 @@ public class OTPGeneratorService {
 		for (int i=0 ; i<length; i++ ) {
 			otp[i]= number.charAt(random.nextInt(number.length()));
 		}
-		return otp;
+		return new String(otp);
 	}
 	
-	public char[] generateAlphaNumericOTP(int length) {
+	public String generateAlphaNumericOTP(int length) {
 		System.out.println("Generating your alphanumeric OTP using random(): ");
 		String str = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
 		Random random = new Random();
@@ -29,10 +29,10 @@ public class OTPGeneratorService {
 		for (int i=0 ; i<length; i++ ) {
 			otp[i]= str.charAt(random.nextInt(str.length()));
 		}
-		return otp;
+		return new String(otp);
 	}
 	
-	public char[] generatePswd(int length) {
+	public String generatePswd(int length) {
 		System.out.println("Generating your password using random(): ");
 		String smallStr = "abcdefghijklmnopqrstuvwxyz";
 		String capStr = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -43,9 +43,11 @@ public class OTPGeneratorService {
 		char[] pswd = new  char[length];
 		
 		for (int i=0 ; i<length; i++ ) {
-			pswd[i]= values.charAt(random.nextInt(values.length()));
+		// pswd[i]= values.charAt((int) (Math.random() * values.length()));
+			
+		pswd[i]= values.charAt(random.nextInt(values.length()));
 		}
-		return pswd;
+		return new String(pswd);
 	}
 	
 }
